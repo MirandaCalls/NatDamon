@@ -1,0 +1,194 @@
+@font-face {
+    font-family: Roboto;
+    src: url(/assets/Roboto-Regular.ttf);
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+body {
+    font-family: Roboto;
+    background-color: #161616;
+    color: #fff;
+    max-width: 74rem;
+    margin: 0 auto;
+    padding: 0em 1em;
+}
+
+header {
+    margin-bottom: 10px;
+}
+
+.feather {
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}
+
+.feather--small {
+    width: 20px;
+    height: 20px;
+}
+
+.button {
+    color: white;
+    background-color: #80407c;
+    display: block;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.button--small {
+    width: 60px;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: .5;
+    cursor: default;
+}
+
+.text-input {
+    display: flex;
+    width: fit-content;
+}
+
+.text-input .text-input__prepend {
+    width: 30px;
+    border-radius: 5px;
+    background-color: rgb(69, 68, 68);
+    border: 1px solid rgb(166, 166, 166);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.text-input.invalid * {
+    border-color: #dc3545;
+}
+
+.text-input__icon {
+    position: relative;
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+}
+
+.text-input__input-field {
+    width: 175px;
+    height: 30px;
+    padding-left: 5px;
+    color: #fff;
+    background-color: rgb(69, 68, 68);
+    border: 1px solid rgb(166, 166, 166);
+    border-left: 0;
+    border-radius: 5px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.navbar {
+    border-bottom: 1px solid #333333;
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#damon_image {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+}
+
+#logo_image {
+    width: 330px;
+    height: 48px;
+}
+
+@media screen and (max-width: 600px) {
+    #logo_image {
+        display: none;
+    }
+}
+
+.menu-icon {
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: relative;
+    top: 5px;
+    padding: 5px;
+}
+
+.menu-icon.active {
+    background-color: #80407c;
+    border-radius: 10px;
+}
+
+#dashboard_filters {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    width: fit-content;
+}
+
+.dropdown-link {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown {
+    min-width: 215px;
+    top: 20px;
+    right: 5px;
+    position: absolute;
+    background-color: #222;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(166, 166, 166);
+    z-index: 20;
+}
+
+.dropdown .text-input {
+    margin-bottom: 10px;
+}
+
+.dropdown select {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.chart {
+    height: 300px;
+}
+
+.card {
+    background-color: #282828;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card__title {
+    margin: 10px 0px;
+}
+
+.schedule-select {
+    margin-bottom: 10px;
+}
+

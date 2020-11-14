@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nat Damon</title>
+        <link rel="icon" href="/assets/icon.png">
+        <link rel="apple-touch-icon" sizes="128x128" href="/assets/icon.png">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+        <script src="/scripts/config.js" type="module"></script>
+    </head>
+    <body>
+        <header>
+            <div class="navbar">
+                <img id="damon_image" src="/assets/icon.png">
+                <img id="logo_image" src="/assets/logo.png">
+                <div>
+                    <a href="/">
+                        <svg class="feather navbar-item menu-icon">
+                            <use xlink:href="/assets/feather-sprite.svg#home"/>
+                        </svg>
+                    </a>
+                    <a href="/config">
+                        <svg class="feather navbar-item menu-icon active">
+                            <use xlink:href="/assets/feather-sprite.svg#settings"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="card">
+                <h2 class="card__title">Configuration</h2>
+                <div class="schedule-select">
+                    <label for="speed_select">Run Speed Tests:</label>
+                    <select id="speed_select">
+                        <option value="* * * * *">Every Minute</option>
+                        <option value="*/5 * * * *">Every 5 Minutes</option>
+                        <option value="0 * * * *">Every Hour</option>
+                        <option value="0 */4 * * *">Every 4 hours</option>
+                        <option value="0 0 * * *">Every Day</option>
+                    </select>
+                </div>
+                <div class="schedule-select">
+                    <label for="ping_select">Run Ping Tests:</label>
+                    <select id="ping_select">
+                        <option value="* * * * *">Every Minute</option>
+                        <option value="*/5 * * * *">Every 5 Minutes</option>
+                        <option value="0 * * * *">Every Hour</option>
+                        <option value="0 */4 * * *">Every 4 hours</option>
+                        <option value="0 0 * * *">Every Day</option>
+                    </select>
+                </div>
+                <a id="save_button" class="button button--small" href="#">Save</a>
+            </div>
+        </main>
+    </body>
+</html>

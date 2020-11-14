@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nat Damon</title>
+        <link rel="icon" href="/assets/icon.png">
+        <link rel="apple-touch-icon" sizes="128x128" href="/assets/icon.png">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+        <script src="/scripts/Chart.bundle.min.js"></script>
+        <script src="/scripts/moment.min.js"></script>
+        <script src="/scripts/dashboard.js" type="module"></script>
+    </head>
+    <body>
+        <header>
+            <div class="navbar">
+                <img id="damon_image" src="/assets/icon.png">
+                <img id="logo_image" src="/assets/logo.png">
+                <div>
+                    <a href="/">
+                        <svg class="feather navbar-item menu-icon active">
+                            <use xlink:href="/assets/feather-sprite.svg#home"/>
+                        </svg>
+                    </a>
+                    <a href="/config">
+                        <svg class="feather navbar-item menu-icon">
+                            <use xlink:href="/assets/feather-sprite.svg#settings"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div id="dashboard_filters">
+                <div class="dropdown-link" data-id="timerange_dropdown">
+                    <span>Select Date Range</span>
+                    <svg class="feather feather--small">
+                        <use xlink:href="/assets/feather-sprite.svg#chevron-down"/>
+                    </svg>
+                </div>
+                <div id="timerange_dropdown" class="dropdown" style="display: none">
+                    <select class="range-type-select">
+                        <option value="today">Today</option>
+                        <option value="3days">Last 3 Days</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                    <div class="custom-range-selectors" style="display: none;">
+                        <div class="text-input">
+                            <div class="text-input__prepend">
+                                <svg class="text-input__icon feather">
+                                    <use xlink:href="/assets/feather-sprite.svg#calendar"/>
+                                </svg>
+                            </div>
+                            <input class="text-input__input-field timerange-start" type="datetime"
+                            pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"
+                            placeholder="yyyy-mm-ddThh:mm" required>
+                        </div>
+                        <div class="text-input">
+                            <div class="text-input__prepend">
+                                <svg class="text-input__icon feather">
+                                    <use xlink:href="/assets/feather-sprite.svg#calendar"/>
+                                </svg>
+                            </div>
+                            <input class="text-input__input-field timerange-stop" type="datetime"
+                            pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"
+                            placeholder="yyyy-mm-ddThh:mm" required>
+                        </div>
+                    </div>
+                    <a class="button dropdown__apply-btn" href="#">Apply</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__header">
+                    <h2 class="card__title">Network Speed (mb/s)</h3>
+                    <a id="speedchart_download" data-id="speedChart" download="speedchart.jpg" href="#">
+                        <svg class="feather feather--small">
+                            <use xlink:href="/assets/feather-sprite.svg#download"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="chart">
+                    <canvas id="speedChart"></canvas>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__header">
+                    <h2 class="card__title">Ping (ms)</h3>
+                    <a id="pingchart_download" data-id="pingChart" download="pingchart.jpg" href="#">
+                        <svg class="feather feather--small">
+                            <use xlink:href="/assets/feather-sprite.svg#download"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="chart">
+                    <canvas id="pingChart"></canvas>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
