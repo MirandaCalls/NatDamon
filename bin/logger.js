@@ -22,7 +22,7 @@ var config = new ModelConfig(database);
 main().catch(onError);
 
 async function main() {
-    utilities.printCliTitle();
+    await utilities.printCliTitle();
 
     var ready = await config.doesTableExist();
     if (!ready) {
