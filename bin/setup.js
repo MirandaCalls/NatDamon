@@ -48,7 +48,7 @@ async function main() {
     }
 
     if (args.importSpeedlogs) {
-        await importSpeedlogs(args.import);
+        await importSpeedlogs(args.importSpeedlogs);
     }
     console.log("Completed setup utility.");
 }
@@ -61,8 +61,8 @@ function onError(error) {
 function printHelp() {
 	console.log("setup.js usage:");
 	console.log("");
-	console.log("--help, -h                  print this help");
-	console.log("--import={FILEPATH}         read file from {FILEPATH}");
+	console.log("--help, -h                   print this help");
+	console.log("--importSpeedlogs={FILEPATH} load data from {FILEPATH}");
 	console.log("");
 	console.log("");
 }
