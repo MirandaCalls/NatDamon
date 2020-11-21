@@ -10,8 +10,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             pingchart.destroy();
         }
 
-        var islarge = range.stop.diff(range.start, 'days') > 1;
-
         var params = new URLSearchParams({
             start: range.start.toISOString(),
             stop: range.stop.toISOString()
@@ -19,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         var res = await fetch('/api/datasets/speed?' + params);
         var data = await res.json();
-        speedchart = renderTimeSeries('speedChart', islarge, [
+        speedchart = renderTimeSeries('speedChart', [
             {
                 label: 'Download',
                 backgroundColor: 'rgba(255, 99, 132, 0.2)',
@@ -32,18 +30,18 @@ document.addEventListener('DOMContentLoaded', async () => {
                 borderColor: 'rgb(54, 162, 235)',
                 data: data.upload      
             },
-        ]);
+        ], range.start, range.stop);
 
         res = await fetch('/api/datasets/ping?' + params);
         var data = await res.json();
-        pingchart = renderTimeSeries('pingChart', islarge, [
+        pingchart = renderTimeSeries('pingChart', [
             {
                 label: 'Latency',
                 backgroundColor: 'rgba(255, 99, 132, 0.2)',
                 borderColor: 'rgb(255, 99, 132)',
                 data: data.latency    
             },
-        ]);
+        ], range.start, range.stop);
     });
     picker.applyNewRange();
 
@@ -53,7 +51,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     p_link.addEventListener('click', buildChartImageUrl);
 });
 
-function renderTimeSeries(chartId, largeRange, datasets) {
+function renderTimeSeries(chartId, datasets, minDate, maxDate) {
+    var large_range = maxDate.diff(minDate, 'days') > 1;
     var context = document.getElementById(chartId).getContext('2d');
     return new Chart(context, {
         type: 'line',
@@ -67,8 +66,10 @@ function renderTimeSeries(chartId, largeRange, datasets) {
                 xAxes: [{
                     type: 'time',
                     time: {
-                        unit: largeRange ? 'day' : 'hour',
-                        distribution: 'linear'
+                        unit: large_range ? 'day' : 'hour',
+                        distribution: 'linear',
+                        min: minDate,
+                        max: maxDate,
                     }
                 }]
             }
