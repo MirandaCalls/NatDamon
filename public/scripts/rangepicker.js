@@ -85,7 +85,7 @@ class RangePicker {
     collectRangeData() {
         var type = this.rangeSelector.value;
         var range;
-        var mDayStart = moment().hours(0).minutes(0).seconds(0);
+        var mDayStart = moment().startOf('day');
         if (type == 'today') {
             range = {
                 type: 'today',
