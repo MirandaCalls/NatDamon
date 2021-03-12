@@ -92,10 +92,10 @@ class RangePicker {
                 start: mDayStart.clone(),
                 stop: mDayStart.clone().add(1, 'days')
             };
-        } else if (type == '3days') {
+        } else if (type == '7days') {
             range = {
-                type: '3days',
-                start: mDayStart.clone().subtract(2, 'days'),
+                type: '7days',
+                start: mDayStart.clone().subtract(6, 'days'),
                 stop: mDayStart.clone().add(1, 'days')
             };
         } else {
@@ -107,8 +107,8 @@ class RangePicker {
 
             range = {
                 type: 'custom',
-                start: moment(this.startInput.value),
-                stop: moment(this.stopInput.value)
+                start: moment(this.startInput.value).startOf('day'),
+                stop: moment(this.stopInput.value).endOf('day')
             };
         }
 

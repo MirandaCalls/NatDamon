@@ -33,6 +33,7 @@
         </header>
         <main>
             <div id="dashboard_filters">
+                <h3 class="selected-range-header">Today</h3>
                 <div class="dropdown-link" data-id="timerange_dropdown">
                     <span>Select Date Range</span>
                     <svg class="feather feather--small">
@@ -42,7 +43,7 @@
                 <div id="timerange_dropdown" class="dropdown" style="display: none">
                     <select class="range-type-select">
                         <option value="today">Today</option>
-                        <option value="3days">Last 3 Days</option>
+                        <option value="7days">Last 7 Days</option>
                         <option value="custom">Custom</option>
                     </select>
                     <div class="custom-range-selectors" style="display: none;">
@@ -52,9 +53,9 @@
                                     <use xlink:href="/assets/feather-sprite.svg#calendar"/>
                                 </svg>
                             </div>
-                            <input class="text-input__input-field timerange-start" type="datetime"
-                            pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"
-                            placeholder="yyyy-mm-ddThh:mm" required>
+                            <input class="text-input__input-field timerange-start" type="date"
+                            pattern="[0-9]{4}/[0-9]{2}/[0-9]{2}"
+                            placeholder="yyyy/mm/dd" required>
                         </div>
                         <div class="text-input">
                             <div class="text-input__prepend">
@@ -62,9 +63,9 @@
                                     <use xlink:href="/assets/feather-sprite.svg#calendar"/>
                                 </svg>
                             </div>
-                            <input class="text-input__input-field timerange-stop" type="datetime"
-                            pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"
-                            placeholder="yyyy-mm-ddThh:mm" required>
+                            <input class="text-input__input-field timerange-stop" type="date"
+                            pattern="[0-9]{4}/[0-9]{2}/[0-9]{2}"
+                            placeholder="yyyy/mm/dd" required>
                         </div>
                     </div>
                     <a class="button dropdown__apply-btn" href="#">Apply</a>

@@ -133,11 +133,15 @@ header {
 }
 
 #dashboard_filters {
+    display: flex;
+    justify-content: space-between;
     position: relative;
     margin-top: 10px;
     margin-bottom: 10px;
-    margin-left: auto;
-    width: fit-content;
+}
+
+.selected-range-header {
+    margin: 0px;
 }
 
 .dropdown-link {

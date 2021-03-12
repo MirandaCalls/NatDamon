@@ -3,11 +3,24 @@ import RangePicker from './rangepicker.js';
 document.addEventListener('DOMContentLoaded', async () => {
     Chart.defaults.global.defaultFontColor = '#fff';
     var speedchart, pingchart;
+    var selected_range_header = document.querySelector('.selected-range-header');
     var rangepicker_link = document.querySelector('.dropdown-link');
     var picker = new RangePicker(rangepicker_link, async (range) => {
         if (speedchart || pingchart) {
             speedchart.destroy();
             pingchart.destroy();
+        }
+
+        switch(range.type) {
+            case 'today':
+                selected_range_header.textContent = "Today";
+                break;
+            case '7days':
+                selected_range_header.textContent = "Last 7 Days";
+                break;
+            case 'custom':
+                selected_range_header.textContent = range.start.format("MMMM DD, YYYY") + " to " + range.stop.format("MMMM DD, YYYY");
+                break;
         }
 
         var params = new URLSearchParams({
@@ -68,6 +81,8 @@ function renderTimeSeries(chartId, datasets, minDate, maxDate) {
                     time: {
                         unit: large_range ? 'day' : 'hour',
                         distribution: 'linear',
+                    },
+                    ticks: {
                         min: minDate,
                         max: maxDate,
                     }
